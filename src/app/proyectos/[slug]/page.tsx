@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ProjectVisual } from "@/components/ProjectVisual";
 import { StatusBadge } from "@/components/StatusBadge";
 import { getProjectBySlug, getProjects } from "@/lib/projects";
 
@@ -34,6 +35,8 @@ export default async function ProjectPage(props: PageProps<"/proyectos/[slug]">)
         </div>
         <p className="text-foreground/70">{project.description}</p>
       </div>
+
+      {project.visual && <ProjectVisual visual={project.visual} />}
 
       <div className="flex flex-wrap gap-2">
         {project.stack.map((tech) => (

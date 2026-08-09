@@ -1,5 +1,7 @@
 export type ProjectStatus = "idea" | "en-progreso" | "terminado";
 
+export type ProjectVisual = "brain-3d";
+
 export type Project = {
   slug: string;
   title: string;
@@ -11,21 +13,24 @@ export type Project = {
   repoUrl?: string;
   demoUrl?: string;
   learnings: string[];
+  visual?: ProjectVisual;
 };
 
 export const projects: Project[] = [
   {
-    slug: "anamnesis",
-    title: "Anamnesis",
-    summary: "Chat de paciente + dashboard de doctor con extracción estructurada por IA.",
+    slug: "cerebro-3d",
+    title: "Cerebro 3D",
+    summary: "Un cerebro humano generado de forma procedural y renderizado en 3D en el navegador.",
     description:
-      "Un MVP donde el paciente conversa con un chat y un doctor revisa un dashboard con la información extraída automáticamente. Sirvió para aprender a combinar Next.js con modelos de lenguaje para extracción de datos estructurados.",
-    stack: ["Next.js", "TypeScript", "IA / LLM"],
+      "Repaso de biología (hemisferios cerebrales, corteza, tronco encefálico) mientras aprendo gráficos 3D en la web: geometría generada por código, ruido para simular los pliegues de la corteza y una escena interactiva que se puede rotar con el mouse.",
+    stack: ["Next.js", "Three.js", "React Three Fiber"],
     status: "en-progreso",
     date: "2026-08",
+    visual: "brain-3d",
     learnings: [
-      "Extracción estructurada con JSON schema estricto",
-      "Diseño de UI con shadcn y tokens de tema",
+      "Geometrías procedurales y ruido (simplex noise) para texturas orgánicas",
+      "React Three Fiber: Canvas, luces, materiales y OrbitControls",
+      "Anatomía básica: hemisferios, fisura longitudinal y tronco encefálico",
     ],
   },
   {
