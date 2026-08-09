@@ -1,3 +1,5 @@
+import type { CategorySlug } from "@/data/categories";
+
 export type ProjectStatus = "idea" | "en-progreso" | "terminado";
 
 export type ProjectVisual = "brain-3d";
@@ -14,6 +16,7 @@ export type Project = {
   demoUrl?: string;
   learnings: string[];
   visual?: ProjectVisual;
+  category?: CategorySlug;
 };
 
 export const projects: Project[] = [
@@ -27,24 +30,11 @@ export const projects: Project[] = [
     status: "en-progreso",
     date: "2026-08",
     visual: "brain-3d",
+    category: "biologia",
     learnings: [
       "Geometrías procedurales y ruido (simplex noise) para texturas orgánicas",
       "React Three Fiber: Canvas, luces, materiales y OrbitControls",
       "Anatomía básica: hemisferios, fisura longitudinal y tronco encefálico",
-    ],
-  },
-  {
-    slug: "psyche",
-    title: "Psyche",
-    summary: "Esta misma página: una bitácora de proyectos para registrar lo que voy aprendiendo.",
-    description:
-      "Un sitio simple armado con Next.js para ir documentando cada proyecto nuevo que hago mientras aprendo a programar: qué construí, con qué tecnologías y qué aprendí en el camino.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
-    status: "en-progreso",
-    date: "2026-08",
-    learnings: [
-      "App Router y rutas dinámicas de Next.js 16",
-      "Tailwind CSS v4 con theming basado en variables",
     ],
   },
 ];
