@@ -17,6 +17,7 @@ export type Project = {
   learnings: string[];
   visual?: ProjectVisual;
   category?: CategorySlug;
+  temasRelacionados?: string[];
 };
 
 export const projects: Project[] = [
@@ -31,6 +32,7 @@ export const projects: Project[] = [
     date: "2026-08",
     visual: "brain-3d",
     category: "biologia",
+    temasRelacionados: ["teoria-celular", "genetica", "procesos", "partes-sistema-nervioso", "desarrollo-sistema-nervioso"],
     learnings: [
       "Geometrías procedurales y ruido (simplex noise) para texturas orgánicas",
       "React Three Fiber: Canvas, luces, materiales y OrbitControls",

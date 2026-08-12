@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { StatusBadge } from "@/components/StatusBadge";
 import { getProjectBySlug, getProjects } from "@/lib/projects";
+import { getTemaBySlug } from "@/lib/temas";
 
 export function generateStaticParams() {
   return getProjects().map((project) => ({ slug: project.slug }));
@@ -21,6 +22,10 @@ export default async function ProjectPage(props: PageProps<"/proyectos/[slug]">)
   if (!project) {
     notFound();
   }
+
+  const temasRelacionados = (project.temasRelacionados ?? [])
+    .map((slug) => getTemaBySlug(slug))
+    .filter((tema) => tema != null);
 
   return (
     <main className="mx-auto flex max-w-3xl flex-1 flex-col gap-8 px-6 py-12">
@@ -48,6 +53,23 @@ export default async function ProjectPage(props: PageProps<"/proyectos/[slug]">)
           </span>
         ))}
       </div>
+
+      {temasRelacionados.length > 0 && (
+        <div className="flex flex-col gap-2">
+          <h2 className="text-sm font-medium text-foreground/60">Apuntes relacionados</h2>
+          <div className="flex flex-wrap gap-2">
+            {temasRelacionados.map((tema) => (
+              <Link
+                key={tema.slug}
+                href={`/${tema.categoria}/${tema.slug}`}
+                className="rounded-lg border border-black/10 px-3 py-2 text-sm hover:border-black/25 dark:border-white/10 dark:hover:border-white/25"
+              >
+                {tema.titulo}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       {project.learnings.length > 0 && (
         <div className="flex flex-col gap-2">
