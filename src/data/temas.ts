@@ -729,35 +729,34 @@ export const temas: Tema[] = [
     parte: "Fundamentos de IA",
     titulo: "Matemática y ML clásico",
     resumen:
-      "La base matemática detrás de todo modelo: álgebra lineal, probabilidad y los algoritmos de machine learning previos a las redes neuronales.",
+      "Con álgebra lineal, matemática discreta y Python ya cubiertos, el siguiente tramo es probabilidad aplicada y los algoritmos de ML clásico antes de llegar a redes neuronales.",
     mapaConceptual: {
       label: "Matemática y ML clásico",
       children: [
-        { label: "Ahora", children: [{ label: "Álgebra lineal" }, { label: "Vectores y embeddings" }] },
-        { label: "3–6 meses", children: [{ label: "Regresión" }, { label: "Árboles de decisión" }, { label: "Overfitting" }] },
-        { label: "6–12 meses", children: [{ label: "Activación" }, { label: "Regularización" }, { label: "Optimizadores" }] },
-        { label: "12+ meses", children: [{ label: "Especialización" }, { label: "NLP / visión / series de tiempo" }] },
+        { label: "Ya cubierto", children: [{ label: "Álgebra lineal" }, { label: "Matemática discreta" }, { label: "Python" }] },
+        { label: "Ahora", children: [{ label: "Probabilidad y Bayes" }, { label: "Regresión" }, { label: "Overfitting" }] },
+        { label: "3–6 meses", children: [{ label: "Activación" }, { label: "Regularización" }, { label: "Optimizadores" }] },
+        { label: "6–12 meses", children: [{ label: "Especialización" }, { label: "NLP / visión / series de tiempo" }] },
       ],
     },
     secciones: [
       {
-        titulo: "Ahora — álgebra lineal con propósito",
+        titulo: "Ya cubierto",
         contenido: [
-          "Vectores, matrices y producto punto: la base de los embeddings que ya se usan en cualquier sistema con IA.",
-          "No hace falta el curso completo de un semestre: \"Essence of Linear Algebra\" (3Blue1Brown) da la intuición visual, y practicar las operaciones en NumPy la fija.",
-          "Pregunta guía: cuando dos embeddings son \"parecidos\", ¿qué operación matemática se está calculando en el fondo?",
+          "Álgebra lineal (vectores, matrices, producto punto — la base de los embeddings), matemática discreta y Python.",
+          "Con esa base ya no hace falta arrancar por ahí: se puede ir directo a probabilidad aplicada y los primeros algoritmos de ML.",
         ],
       },
       {
-        titulo: "3–6 meses — ML clásico antes que redes neuronales",
+        titulo: "Ahora — probabilidad y primeros algoritmos",
         contenido: [
+          "Probabilidad y estadística aplicada: distribuciones y el teorema de Bayes — aparecen todo el tiempo en ML, desde clasificadores simples hasta cómo se interpreta la salida de un modelo.",
           "Regresión lineal y logística, árboles de decisión, y la diferencia entre overfitting y underfitting.",
-          "Train / validation / test split: por qué evaluar un modelo con los mismos datos con los que se entrenó no dice nada.",
-          "Practicar con un dataset chico en scikit-learn evita perderse en la teoría sin tocar código.",
+          "Train / validation / test split: por qué evaluar un modelo con los mismos datos con los que se entrenó no dice nada. Practicarlo con un dataset chico en scikit-learn.",
         ],
       },
       {
-        titulo: "6–12 meses — redes neuronales en profundidad",
+        titulo: "3–6 meses — redes neuronales en profundidad",
         contenido: [
           "Funciones de activación (ReLU, sigmoid) y por qué una red sin ellas es solo una regresión lineal disfrazada.",
           "Regularización (dropout, weight decay) para evitar que el modelo memorice en vez de generalizar.",
@@ -765,7 +764,7 @@ export const temas: Tema[] = [
         ],
       },
       {
-        titulo: "12+ meses — especializarse",
+        titulo: "6–12 meses — especializarse",
         contenido: [
           "Elegir un área según interés real: NLP, visión, series de tiempo, o ML aplicado a biología/psicología.",
           "A esta altura, especializarse rinde más que seguir viendo fundamentos generales.",
