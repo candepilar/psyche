@@ -723,4 +723,197 @@ export const temas: Tema[] = [
       },
     ],
   },
+  {
+    slug: "matematica-ml-clasico",
+    categoria: "ia",
+    parte: "Fundamentos de IA",
+    titulo: "Matemática y ML clásico",
+    resumen:
+      "La base matemática detrás de todo modelo: álgebra lineal, probabilidad y los algoritmos de machine learning previos a las redes neuronales.",
+    mapaConceptual: {
+      label: "Matemática y ML clásico",
+      children: [
+        { label: "Ahora", children: [{ label: "Álgebra lineal" }, { label: "Vectores y embeddings" }] },
+        { label: "3–6 meses", children: [{ label: "Regresión" }, { label: "Árboles de decisión" }, { label: "Overfitting" }] },
+        { label: "6–12 meses", children: [{ label: "Activación" }, { label: "Regularización" }, { label: "Optimizadores" }] },
+        { label: "12+ meses", children: [{ label: "Especialización" }, { label: "NLP / visión / series de tiempo" }] },
+      ],
+    },
+    secciones: [
+      {
+        titulo: "Ahora — álgebra lineal con propósito",
+        contenido: [
+          "Vectores, matrices y producto punto: la base de los embeddings que ya se usan en cualquier sistema con IA.",
+          "No hace falta el curso completo de un semestre: \"Essence of Linear Algebra\" (3Blue1Brown) da la intuición visual, y practicar las operaciones en NumPy la fija.",
+          "Pregunta guía: cuando dos embeddings son \"parecidos\", ¿qué operación matemática se está calculando en el fondo?",
+        ],
+      },
+      {
+        titulo: "3–6 meses — ML clásico antes que redes neuronales",
+        contenido: [
+          "Regresión lineal y logística, árboles de decisión, y la diferencia entre overfitting y underfitting.",
+          "Train / validation / test split: por qué evaluar un modelo con los mismos datos con los que se entrenó no dice nada.",
+          "Practicar con un dataset chico en scikit-learn evita perderse en la teoría sin tocar código.",
+        ],
+      },
+      {
+        titulo: "6–12 meses — redes neuronales en profundidad",
+        contenido: [
+          "Funciones de activación (ReLU, sigmoid) y por qué una red sin ellas es solo una regresión lineal disfrazada.",
+          "Regularización (dropout, weight decay) para evitar que el modelo memorice en vez de generalizar.",
+          "Optimizadores (SGD, Adam) y el problema de gradientes que explotan o se desvanecen en redes profundas.",
+        ],
+      },
+      {
+        titulo: "12+ meses — especializarse",
+        contenido: [
+          "Elegir un área según interés real: NLP, visión, series de tiempo, o ML aplicado a biología/psicología.",
+          "A esta altura, especializarse rinde más que seguir viendo fundamentos generales.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "deep-learning-llms",
+    categoria: "ia",
+    parte: "Fundamentos de IA",
+    titulo: "Deep learning y LLMs",
+    resumen:
+      "Cómo funciona un modelo de lenguaje por dentro: de una red neuronal hecha a mano al mecanismo de atención de los transformers.",
+    mapaConceptual: {
+      label: "Deep learning y LLMs",
+      children: [
+        { label: "Ahora", children: [{ label: "Tokenización" }, { label: "Embeddings" }, { label: "Atención" }] },
+        { label: "3–6 meses", children: [{ label: "Backpropagation" }, { label: "Micrograd" }, { label: "PyTorch" }] },
+        { label: "6–12 meses", children: [{ label: "Self-attention" }, { label: "Fine-tuning vs. prompting vs. RAG" }] },
+        { label: "12+ meses", children: [{ label: "Fine-tuning real" }, { label: "LoRA / PEFT" }] },
+      ],
+    },
+    secciones: [
+      {
+        titulo: "Ahora — cómo funciona un LLM, de verdad",
+        contenido: [
+          "Tokenización: el texto se parte en unidades (tokens), no en palabras completas — por eso los modelos a veces \"cuentan letras\" mal.",
+          "Embeddings: cada token se convierte en un vector que representa su significado en un espacio matemático.",
+          "Atención: el mecanismo que decide qué otras partes del texto son relevantes para cada palabra. \"The Illustrated Transformer\" (Jay Alammar) lo explica de forma visual antes de leer el paper original.",
+        ],
+      },
+      {
+        titulo: "3–6 meses — una red neuronal desde cero",
+        contenido: [
+          "Construir una red sin frameworks, solo con NumPy, para sentir el backpropagation con las manos — el ejercicio \"micrograd\" de Andrej Karpathy es el clásico para esto.",
+          "Recién después de entender el mecanismo a mano tiene sentido pasar a PyTorch, donde todo eso queda automatizado.",
+        ],
+      },
+      {
+        titulo: "6–12 meses — transformers de punta a punta",
+        contenido: [
+          "Leer el paper \"Attention Is All You Need\" con una guía de apoyo, entendiendo self-attention multi-cabeza paso a paso.",
+          "Cuándo conviene cada estrategia: prompting (rápido, sin entrenar nada), RAG (agregar contexto externo) o fine-tuning (ajustar los pesos del modelo).",
+        ],
+      },
+      {
+        titulo: "12+ meses — fine-tuning y modelos propios",
+        contenido: [
+          "Cuándo tiene sentido ajustar un modelo en vez de usar uno de API: costos reales de entrenar vs. costos de inferencia por API.",
+          "LoRA / PEFT como técnica accesible para ajustar un modelo grande sin reentrenarlo entero.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "construir-con-ia",
+    categoria: "ia",
+    parte: "Ingeniería de IA",
+    titulo: "Construir con IA",
+    resumen:
+      "Llevar la IA a producción: de una llamada a una API a un sistema con RAG, agentes y monitoreo real — con Anamnesis como caso propio.",
+    mapaConceptual: {
+      label: "Construir con IA",
+      children: [
+        { label: "Ahora", children: [{ label: "Auditar Anamnesis" }, { label: "Validación de schema" }] },
+        { label: "3–6 meses", children: [{ label: "Embeddings" }, { label: "pgvector" }, { label: "RAG" }] },
+        { label: "6–12 meses", children: [{ label: "Function calling" }, { label: "Agentes" }, { label: "Costos" }] },
+        { label: "12+ meses", children: [{ label: "Monitoreo" }, { label: "Drift" }, { label: "Versionado de prompts" }] },
+      ],
+    },
+    secciones: [
+      {
+        titulo: "Ahora — auditar el propio código",
+        contenido: [
+          "Revisar el extractor estructurado de Anamnesis: ¿qué pasa si el modelo devuelve un JSON inválido?",
+          "¿Hay reintentos automáticos, validación real del schema (por ejemplo con Zod), y un fallback cuando todo falla?",
+          "Este es el primer ejercicio real de \"AI engineering\" bien hecho: no confiar en que el modelo siempre responde en el formato esperado.",
+        ],
+      },
+      {
+        titulo: "3–6 meses — RAG real, no de tutorial",
+        contenido: [
+          "Embeddings + búsqueda vectorial con pgvector (ya disponible en Supabase) para buscar información relevante antes de responder.",
+          "Aplicarlo a un caso propio: que psyche o Anamnesis puedan responder preguntas sobre su propio contenido.",
+        ],
+      },
+      {
+        titulo: "6–12 meses — agentes con herramientas",
+        contenido: [
+          "Function calling / tool use: el modelo decide cuándo llamar a una función y con qué argumentos.",
+          "Loops de agente con varios pasos encadenados, manejo de errores en cada paso, y límites de costo y latencia para que no se descontrole.",
+        ],
+      },
+      {
+        titulo: "12+ meses — sistemas de IA en producción",
+        contenido: [
+          "Monitoreo de calidad en producción: no alcanza con que funcione en la demo.",
+          "Manejo de drift (cuando el modelo empieza a fallar en casos nuevos), versionado de prompts, y control de costos a escala.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "etica-investigacion-ia",
+    categoria: "ia",
+    parte: "Ingeniería de IA",
+    titulo: "Ética e investigación en IA",
+    resumen:
+      "Entender los límites declarados de los modelos que se usan, medir si realmente funcionan, y seguir la investigación real detrás.",
+    mapaConceptual: {
+      label: "Ética e investigación",
+      children: [
+        { label: "Ahora", children: [{ label: "Model cards" }, { label: "Políticas de uso" }] },
+        { label: "3–6 meses", children: [{ label: "Evals" }, { label: "Casos adversariales" }] },
+        { label: "6–12 meses", children: [{ label: "Papers" }, { label: "arXiv cs.CL / cs.LG" }] },
+        { label: "12+ meses", children: [{ label: "Postura propia" }, { label: "IA responsable" }] },
+      ],
+    },
+    secciones: [
+      {
+        titulo: "Ahora — mapear qué no se sabe",
+        contenido: [
+          "Leer el model card del modelo que se usa en producción (por ejemplo, el de Anamnesis): qué límites declara el proveedor, con qué datos se entrenó, qué políticas de uso existen.",
+          "No es para memorizar, es para saber dónde está parada una antes de confiar ciegamente en la herramienta.",
+        ],
+      },
+      {
+        titulo: "3–6 meses — evals: medir si la IA funciona",
+        contenido: [
+          "Armar un set de casos de prueba para el extractor de Anamnesis: inputs raros, ambiguos, adversariales.",
+          "Medir cuántos casos falla, no solo \"probarlo a ojo\" con dos ejemplos que funcionan bien.",
+        ],
+      },
+      {
+        titulo: "6–12 meses — seguir investigación real",
+        contenido: [
+          "Un paper por semana de arXiv (categorías cs.CL / cs.LG), empezando por los más citados: Transformer, GPT, RLHF.",
+          "Escribir un resumen propio de cada uno fuerza a entenderlo de verdad, no solo a leerlo por arriba.",
+        ],
+      },
+      {
+        titulo: "12+ meses — postura propia",
+        contenido: [
+          "Con todo lo anterior ya recorrido, formar un criterio propio sobre qué usos de IA son responsables — especialmente pensando en una startup con impacto social.",
+          "Dónde trazar el límite entre automatizar y reemplazar el criterio humano.",
+        ],
+      },
+    ],
+  },
 ];

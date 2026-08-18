@@ -4,28 +4,29 @@ import { getTemaBySlug, getTemas } from "@/lib/temas";
 import { ConceptMap } from "@/components/ConceptMap";
 
 export function generateStaticParams() {
-  return getTemas()
-    .filter((tema) => tema.categoria === "biologia")
-    .map((tema) => ({ tema: tema.slug }));
+  return getTemas().map((tema) => ({ categoria: tema.categoria, tema: tema.slug }));
 }
 
-export async function generateMetadata(props: PageProps<"/biologia/[tema]">) {
-  const { tema: slug } = await props.params;
+export async function generateMetadata(props: PageProps<"/[categoria]/[tema]">) {
+  const { categoria, tema: slug } = await props.params;
   const tema = getTemaBySlug(slug);
-  return { title: tema ? `${tema.titulo} — psyche` : "Tema no encontrado" };
+  if (!tema || tema.categoria !== categoria) {
+    return { title: "Tema no encontrado" };
+  }
+  return { title: `${tema.titulo} — psyche` };
 }
 
-export default async function TemaPage(props: PageProps<"/biologia/[tema]">) {
-  const { tema: slug } = await props.params;
+export default async function TemaPage(props: PageProps<"/[categoria]/[tema]">) {
+  const { categoria, tema: slug } = await props.params;
   const tema = getTemaBySlug(slug);
 
-  if (!tema) {
+  if (!tema || tema.categoria !== categoria) {
     notFound();
   }
 
   return (
     <main className="mx-auto flex max-w-3xl flex-1 flex-col gap-8 px-6 py-12">
-      <Link href="/" className="text-sm text-foreground/60 hover:underline">
+      <Link href={`/${categoria}`} className="text-sm text-foreground/60 hover:underline">
         ← volver
       </Link>
 

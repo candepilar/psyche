@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ProjectCard } from "@/components/ProjectCard";
 import { categories } from "@/data/categories";
 import { getProjectsByCategory, getUncategorizedProjects } from "@/lib/projects";
+import { getTemasByCategoria } from "@/lib/temas";
 
 export default function Home() {
   const uncategorized = getUncategorizedProjects();
@@ -32,9 +33,20 @@ export default function Home() {
 
       {categories.map((category) => {
         const categoryProjects = getProjectsByCategory(category.slug);
+        const temasCount = getTemasByCategoria(category.slug).length;
         return (
           <section key={category.slug} id={category.slug} className="scroll-mt-20">
-            <h2 className="mb-4 text-lg font-medium tracking-tight">{category.name}</h2>
+            <div className="mb-4 flex items-center gap-3">
+              <h2 className="text-lg font-medium tracking-tight">{category.name}</h2>
+              {temasCount > 0 && (
+                <Link
+                  href={`/${category.slug}`}
+                  className="text-xs text-foreground/50 hover:text-foreground/80 hover:underline"
+                >
+                  ver apuntes ({temasCount}) →
+                </Link>
+              )}
+            </div>
             {categoryProjects.length > 0 ? (
               <div className="grid gap-4 sm:grid-cols-2">
                 {categoryProjects.map((project) => (

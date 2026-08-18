@@ -4,7 +4,8 @@ export type CategorySlug =
   | "psicologia-intro"
   | "psicolinguistica"
   | "teologia"
-  | "psicologia-evolutiva";
+  | "psicologia-evolutiva"
+  | "ia";
 
 export type Category = {
   slug: CategorySlug;
@@ -18,4 +19,5 @@ export const categories: Category[] = [
   { slug: "psicolinguistica", name: "Psicolingüística" },
   { slug: "teologia", name: "Teología" },
   { slug: "psicologia-evolutiva", name: "Psicología Evolutiva" },
+  { slug: "ia", name: "IA" },
 ];
