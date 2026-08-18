@@ -10,8 +10,19 @@ const Brain3D = dynamic(() => import("@/components/Brain3D").then((mod) => mod.B
   ),
 });
 
+const NeuralNetPlayground = dynamic(
+  () => import("@/components/NeuralNetPlayground").then((mod) => mod.NeuralNetPlayground),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-80 w-full animate-pulse rounded-xl border border-black/10 bg-foreground/5 dark:border-white/10" />
+    ),
+  }
+);
+
 const VISUALS: Record<ProjectVisualKind, React.ComponentType> = {
   "brain-3d": Brain3D,
+  "neural-net": NeuralNetPlayground,
 };
 
 export function ProjectVisual({ visual }: { visual: ProjectVisualKind }) {
